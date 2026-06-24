@@ -15,9 +15,13 @@ class Solution {
 
 		numbers.forEach { number ->
 			when (number) {
-				1 -> {
-					left = phone[1]
+				1,4,7 -> {
+					left = phone[number]
 					answer += "L"
+				}
+				3,6,9 -> {
+					right = phone[number]
+					answer += "R"
 				}
 				2,5,8,0 -> {
 					val hand = getHand(phone[number], left, right, hand)
@@ -27,26 +31,6 @@ class Solution {
 						right = phone[number]
 					}
 					answer += hand
-				}
-				3 -> {
-					right = phone[3]
-					answer += "R"
-				}
-				4 -> {
-					left = phone[4]
-					answer += "L"
-				}
-				6 -> {
-					right = phone[6]
-					answer += "R"
-				}
-				7 -> {
-					left = phone[7]
-					answer += "L"
-				}
-				9 -> {
-					right = phone[9]
-					answer += "R"
 				}
 			}
 		}
