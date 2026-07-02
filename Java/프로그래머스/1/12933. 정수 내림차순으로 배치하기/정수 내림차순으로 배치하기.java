@@ -1,14 +1,17 @@
-import java.util.Arrays;
-
 class Solution {
     public long solution(long n) {
-		char[] arr = String.valueOf(n).toCharArray();
+		long answer = 0;
 
-		Arrays.sort(arr);
+		String[] numbers = String.valueOf(n).split("");
 
-		StringBuilder sb = new StringBuilder(new String(arr));
-		String numbers = sb.reverse().toString();
+		String[] newNumbers = new String[numbers.length];
 
-		return Long.parseLong(numbers);
+		for (int i=0; i<numbers.length; i++) {
+			newNumbers[i] = numbers[(numbers.length-1)-i];
+		}
+
+		String result = String.join("", newNumbers);
+
+		return Long.parseLong(result);
 	}
 }
